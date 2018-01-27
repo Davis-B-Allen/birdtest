@@ -17,13 +17,17 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-	if (Input.GetKeyDown(KeyCode.A)) //move left
+        if (Input.GetKeyDown(KeyCode.A)) //move left
         {
-            rb.velocity = new Vector2(-playerSpeed, 0);
+            rb.velocity = new Vector2 (-playerSpeed, 0);
         }
     if (Input.GetKeyDown(KeyCode.D)) //move right
         {
-            rb.velocity = new Vector2(playerSpeed, 0);
+            rb.velocity = new Vector2 (playerSpeed, 0);
+        }
+    if ((Input.GetKeyUp(KeyCode.A)) || (Input.GetKeyUp(KeyCode.D)))
+        {
+            rb.velocity = new Vector2 (0, 0);
         }
 	}
 }
