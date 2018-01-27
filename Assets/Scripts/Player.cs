@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+	[HideInInspector] public bool facingRight = true;
+
 	public Transform planet;
 	public Transform lastPlanet;
 	public float cwMag;
@@ -98,5 +100,15 @@ public class Player : MonoBehaviour {
 			Vector3 v2 = centrifugalVelocity + tv2;
 			rb2d.velocity = v2;
 		}
+
+		if (h > 0 && !facingRight)
+			Flip ();
+		else if (h < 0 && facingRight)
+			Flip ();
+	}
+
+	void Flip() {
+		facingRight = !facingRight;
+		transform.localScale = Vector3.Scale (transform.localScale, new Vector3 (-1,1,1) );
 	}
 }
