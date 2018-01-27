@@ -18,6 +18,7 @@ public class Player : MonoBehaviour {
 	public float maxTangentialSpeed = 5f;
 	private Vector3 tangentialVelocity;
 	private Vector3 centrifugalVelocity;
+	private NearestPlanet np;
 
 	// Use this for initialization
 	void Start () {
@@ -28,6 +29,7 @@ public class Player : MonoBehaviour {
 
 		tangentialVelocity = Vector3.zero;
 		centrifugalVelocity = Vector3.zero;
+		np = GetComponent<NearestPlanet> ();
 	}
 	
 	// Update is called once per frame
@@ -45,7 +47,7 @@ public class Player : MonoBehaviour {
 
 		centrifugalVelocity = Vector3.Project (rb2d.velocity, directionOfPlayerFromPlanet.normalized);
 		tangentialVelocity = Vector3.Project (rb2d.velocity, clockWiseTangent.normalized);
-
+		planet = np.closestPlanet.transform;
 	}
 
 	void FixedUpdate () {
