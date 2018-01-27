@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EatSeed : MonoBehaviour {
 	GameObject[] seeds;
+	GameObject buttReferenceObj;
+	Queue<GameObject> stomach;
+	float timeSincePoop = 0f;
 
 	// Use this for initialization
 	void Start () {
@@ -12,11 +15,12 @@ public class EatSeed : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		timeSincePoop += Time.deltaTime;
 		seeds = GameObject.FindGameObjectsWithTag("Seed");
 		float minDist = 100f;
-		GameObject minDistObj;
+		GameObject minDistObj = gameObject;
 
-		//find closest planet
+		//find closest seed
 		foreach (GameObject obj in seeds) {
 			float dist = Vector3.Distance(gameObject.transform.position, obj.transform.position);
 
@@ -27,8 +31,22 @@ public class EatSeed : MonoBehaviour {
 			}
 		}
 
-		if (minDistObj != null && Input.GetKeyDown("s")) {
-			GameObject.Destroy(minDistObj);
+		if (minDistObj != gameObject && Input.GetKeyDown("s")) {
+			stomach.Enqueue(minDistObj);
+			minDistObj.active = false;
+		}
+
+		Seed nextSeed = stomach.Peek().GetComponent<Seed>();
+
+		if (stomach.Count == 0){
+			timeSincePoop = 0;
+		}
+		else if (timeSincePoop >= nextSeed.digestionPeriod) {
+			GameObject seed = stomach.Dequeue();
+			seed.transform.position = buttReferenceObj.transform.position;
+			seed.active = true;
+			StartCoroutine(nextSeed.GrowTree());
+			timeSincePoop = 0;
 		}
 	}
 }
