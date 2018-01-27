@@ -29,7 +29,11 @@ public class ObjectGravity : MonoBehaviour {
 		}
 
 		closestPlanet = minDistObj;
-		//apply gravityForce force upon this object towards closest planet
-		rb2d.AddForce((closestPlanet.transform.position - transform.position).normalized * gravityForce);
+	}
+
+	void FixedUpdate () {
+		if (closestPlanet != null) {
+			rb2d.AddForce((closestPlanet.transform.position - transform.position).normalized * gravityForce);
+		}
 	}
 }
