@@ -5,8 +5,8 @@ using UnityEngine;
 public class Planet : MonoBehaviour {
 
 	public Transform player;
+	public float gravitationalForce = 30f;
 
-	private float gravitationalForce = 20f;
 	private Vector3 directionOfPlayerFromPlanet;
 	private Rigidbody2D rb2d;
 
