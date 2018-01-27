@@ -44,6 +44,7 @@ public class EatSeed : MonoBehaviour {
 		else if (timeSincePoop >= nextSeed.digestionPeriod) {
 			GameObject seed = stomach.Dequeue();
 			seed.transform.position = buttReferenceObj.transform.position;
+			seed.gameObject.tag = "PoopSeed";
 			seed.active = true;
 			StartCoroutine(nextSeed.GrowTree());
 			timeSincePoop = 0;
