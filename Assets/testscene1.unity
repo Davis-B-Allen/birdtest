@@ -123,9 +123,10 @@ GameObject:
   - component: {fileID: 126554564}
   - component: {fileID: 126554563}
   - component: {fileID: 126554562}
+  - component: {fileID: 126554565}
   m_Layer: 0
-  m_Name: Square
-  m_TagString: Untagged
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -201,12 +202,25 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 126554561}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.751, y: -1.191, z: 0}
-  m_LocalScale: {x: 1.7283173, y: 3.0168781, z: 1}
+  m_LocalPosition: {x: -2958, y: -498, z: 0}
+  m_LocalScale: {x: 512, y: 512, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &126554565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 126554561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e517db05b074b11419b00413b0329cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSpeed: 1
+  jumpHeight: 1
 --- !u!1 &503397596
 GameObject:
   m_ObjectHideFlags: 0
