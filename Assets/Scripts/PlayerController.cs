@@ -25,9 +25,13 @@ public class PlayerController : MonoBehaviour {
         {
             rb.velocity = new Vector2 (playerSpeed, 0);
         }
-    if ((Input.GetKeyUp(KeyCode.A)) || (Input.GetKeyUp(KeyCode.D)))
+    else if ((Input.GetKeyUp(KeyCode.A)) || (Input.GetKeyUp(KeyCode.D))) //If left or right are not pressed down, stop player momentum
         {
             rb.velocity = new Vector2 (0, 0);
+        }
+    if (Input.GetKeyDown(KeyCode.Space)) //jump upward, no arc though?
+        {
+            rb.velocity = new Vector2(0, jumpHeight);
         }
 	}
 }
