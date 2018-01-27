@@ -28,9 +28,9 @@ public class AnimationController : MonoBehaviour {
         {
             anim.SetInteger("State", 3);
         }
-        else if (currentState > 0)
-        {
-            anim.SetInteger("State", 0);
-        }
+        //else if (currentState > 0)
+        //{
+          //  anim.SetInteger("State", 0);
+        //}
     }
 }
