@@ -5,42 +5,68 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
 	public Transform planet;
+	public float cwMag;
+	public float forceAmountForJump = 30f;
 
-	private float forceAmountForRotation = 5f;
-	private float forceAmountForJump = 30f;
+	private float forceAmountForRotation = 100f;
 	private Vector3 directionOfPlanetFromPlayer;
 	private Vector3 directionOfPlayerFromPlanet;
-	private bool allowForce;
-	private bool allowForce2;
+	private bool jumpForce;
+	private bool cwForce;
 	private Rigidbody2D rb2d;
+
+	public float maxTangentialSpeed = 5f;
+	private Vector3 tangentialVelocity;
+	private Vector3 centrifugalVelocity;
 
 	// Use this for initialization
 	void Start () {
 		directionOfPlanetFromPlayer = Vector3.zero;
 		directionOfPlayerFromPlanet = Vector3.zero;
 		rb2d = GetComponent<Rigidbody2D> ();
+		cwMag = 0f;
+
+		tangentialVelocity = Vector3.zero;
+		centrifugalVelocity = Vector3.zero;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		allowForce = false;
+		jumpForce = false;
 		if (Input.GetKey(KeyCode.Space))
-			allowForce = true;
-		allowForce2 = false;
+			jumpForce = true;
+		cwForce = false;
 		if (Input.GetKey(KeyCode.RightArrow))
-			allowForce2 = true;
+			cwForce = true;
 		directionOfPlanetFromPlayer = transform.position - planet.position;
 		directionOfPlayerFromPlanet = (transform.position-planet.position).normalized;
-		transform.right = Vector3.Cross(directionOfPlanetFromPlayer, Vector3.forward);
+		Vector3 clockWiseTangent = Vector3.Cross(directionOfPlanetFromPlayer, Vector3.forward);
+		transform.right = clockWiseTangent;
+
+		centrifugalVelocity = Vector3.Project (rb2d.velocity, directionOfPlayerFromPlanet.normalized);
+		tangentialVelocity = Vector3.Project (rb2d.velocity, clockWiseTangent.normalized);
+
 	}
 
 	void FixedUpdate () {
-		if (allowForce) {
-//			rb2d.AddForce (transform.right * forceAmountForRotation);
+		float h = Input.GetAxis ("Horizontal");
+		if (h * tangentialVelocity.magnitude < maxTangentialSpeed) {
+			rb2d.AddForce (transform.right * h * forceAmountForRotation);
+
+//			rb2d.AddForce (Vector2.right * h * moveForce);
+		}
+		if (jumpForce) {
 			rb2d.AddForce (directionOfPlayerFromPlanet * forceAmountForJump);
 		}
-		if (allowForce2) {
-			rb2d.AddForce (transform.right * forceAmountForRotation);
+//		if (cwForce) {
+//			rb2d.AddForce (transform.right * forceAmountForRotation);
+//		}
+		cwMag = rb2d.velocity.magnitude;
+
+		if (tangentialVelocity.magnitude > maxTangentialSpeed) {
+			Vector3 tv2 = tangentialVelocity * (maxTangentialSpeed / tangentialVelocity.magnitude);
+			Vector3 v2 = centrifugalVelocity + tv2;
+			rb2d.velocity = v2;
 		}
 	}
 }
