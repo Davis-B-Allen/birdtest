@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Seed : MonoBehaviour {
 	public Object treePrefab;
+	public float digestionPeriod = 10f;
 	public float treeGrowDelay = 2f;
 	bool canGrow = false;
 	ObjectGravity objGrav;
