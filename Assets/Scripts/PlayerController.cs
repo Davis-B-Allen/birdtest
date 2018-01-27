@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     public float playerSpeed = 1.0f;
     public float jumpHeight = 1.0f;
+    public bool onGround;
     Rigidbody2D rb;
 	
     // Use this for initialization
