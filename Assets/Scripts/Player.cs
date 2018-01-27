@@ -5,21 +5,26 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
 	public Transform planet;
+	public Transform lastPlanet;
 	public float cwMag;
 	public float forceAmountForJump = 30f;
 	public Transform groundCheck;
 	public float maxTangentialSpeed = 5f;
+	public float smoothTransitionSpeed = 2f;
+	public float transitionErrorMargin = 10f;
+	public bool canControl = true;
 
 	private float forceAmountForRotation = 100f;
 	private Vector3 directionOfPlanetFromPlayer;
 	private Vector3 directionOfPlayerFromPlanet;
-	private bool jumpForce;
 	private Rigidbody2D rb2d;
 	private Vector3 tangentialVelocity;
 	private Vector3 centrifugalVelocity;
 	private NearestPlanet np;
 	private bool grounded = false;
 	private bool jump = false;
+	private bool smoothTransition = false;
+	private float transitionTime = 0f;
 
 	// Use this for initialization
 	void Start () {
@@ -30,14 +35,12 @@ public class Player : MonoBehaviour {
 
 		tangentialVelocity = Vector3.zero;
 		centrifugalVelocity = Vector3.zero;
-		np = GetComponent<NearestPlanet> ();
+		np = GetComponent<NearestPlanet>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		jumpForce = false;
 		if (Input.GetKey (KeyCode.Space) && grounded) {
-//			jumpForce = true;
 			jump = true;
 		}
 		directionOfPlanetFromPlayer = transform.position - planet.position;
@@ -46,26 +49,44 @@ public class Player : MonoBehaviour {
 
 		grounded = Physics2D.Linecast (transform.position, groundCheck.position, 1 << LayerMask.NameToLayer ("Ground"));
 
-		// Change rotation of birdPlayer so that it's "standing" on the surface of the planet
-		transform.right = clockWiseTangent;
+		if (planet != lastPlanet && lastPlanet != null) {
+			smoothTransition = true;
+			transitionTime = 0f;
+		}
+
+		if (smoothTransition) {
+			canControl = false;
+			transitionTime += Time.deltaTime;
+			float percentComplete = transitionTime/smoothTransitionSpeed;
+			if (Vector3.Angle(transform.right, clockWiseTangent) <= transitionErrorMargin) {
+				smoothTransition = false;
+				canControl = true;
+			}
+			else {
+				Vector3 v1 = new Vector3(transform.right.x, transform.right.y, 0);
+				Vector3 v2 = new Vector3(clockWiseTangent.x, clockWiseTangent.y, 0);
+				transform.right = Vector3.Slerp(v1, v2, percentComplete);
+			}
+		}
+		else {
+			// Change rotation of birdPlayer so that it's "standing" on the surface of the planet
+			transform.right = clockWiseTangent;
+		}
 
 		centrifugalVelocity = Vector3.Project (rb2d.velocity, directionOfPlayerFromPlanet.normalized);
 		tangentialVelocity = Vector3.Project (rb2d.velocity, clockWiseTangent.normalized);
+		lastPlanet = planet;
 		planet = np.closestPlanet.transform;
 	}
 
 	void FixedUpdate () {
 		float h = Input.GetAxis ("Horizontal");
 
-		if (h * tangentialVelocity.magnitude < maxTangentialSpeed) {
+		if (canControl && (h * tangentialVelocity.magnitude < maxTangentialSpeed)) {
 			rb2d.AddForce (transform.right * h * forceAmountForRotation);
 		}
 
-//		if (jumpForce) {
-//			rb2d.AddForce (directionOfPlayerFromPlanet * forceAmountForJump);
-//		}
-//
-		if (jump) {
+		if (canControl && jump) {
 			rb2d.AddForce (directionOfPlayerFromPlanet * forceAmountForJump);
 			jump = false;
 		}
