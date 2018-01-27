@@ -7,6 +7,7 @@ public class EatSeed : MonoBehaviour {
 	GameObject buttReferenceObj;
 	Queue<GameObject> stomach;
 	float timeSincePoop = 0f;
+	public float seedEatDistance = 0.5f;
 
 	// Use this for initialization
 	void Start () {
@@ -25,7 +26,7 @@ public class EatSeed : MonoBehaviour {
 			float dist = Vector3.Distance(gameObject.transform.position, obj.transform.position);
 
 			//update current closest object seen so far
-			if (dist <= minDist) {
+			if (dist <= seedEatDistance) {
 				minDist = dist;
 				minDistObj = obj;
 			}
