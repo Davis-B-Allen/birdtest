@@ -6,6 +6,7 @@ public class TreeCreator : MonoBehaviour {
 
     public GameObject treeTrunk;
     public GameObject treeSegment;
+    public GameObject planet;
     Vector3 quadrant;
     public string growthType;
     public float segmentInterval;
@@ -13,10 +14,9 @@ public class TreeCreator : MonoBehaviour {
 
 	void Start () {
 
-        GameObject gravity = GameObject.FindGameObjectWithTag("Gravity");
         quadrant = new Vector3(1, 1, 0);
-        float yDisplacement = transform.position.y - gravity.transform.position.y;
-        float xDisplacement = transform.position.x - gravity.transform.position.x;
+        float yDisplacement = transform.position.y - planet.transform.position.y;
+        float xDisplacement = transform.position.x - planet.transform.position.x;
         float slope = yDisplacement / xDisplacement;
         float zRotation = Mathf.Rad2Deg * (Mathf.Atan(slope) - Mathf.PI / 2);
         if (xDisplacement < 0) {
@@ -35,6 +35,15 @@ public class TreeCreator : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    void initialize (GameObject trunk, GameObject segment, GameObject planetObj, string type, float interval, float count) {
+        treeTrunk = trunk;
+        treeSegment = segment;
+        planet = planetObj;
+        growthType = type;
+        segmentInterval = interval;
+        segmentCount = count;
+    }
 
     void straightUp () {
         GameObject trunk = Instantiate(treeTrunk);
