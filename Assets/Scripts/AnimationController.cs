@@ -16,7 +16,7 @@ public class AnimationController : MonoBehaviour {
     {
         currentState = anim.GetInteger("State");
 
-	    if (Input.GetKeyDown(KeyCode.D))
+	    if ((Input.GetKeyDown(KeyCode.D)) || (Input.GetKeyDown(KeyCode.A)))
         {
             anim.SetInteger("State", 1);
         }
