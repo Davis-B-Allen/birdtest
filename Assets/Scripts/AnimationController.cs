@@ -28,9 +28,9 @@ public class AnimationController : MonoBehaviour {
         {
             anim.SetInteger("State", 3);
         }
-        //else if (currentState > 0)
-        //{
-          //  anim.SetInteger("State", 0);
-        //}
+        if (!Input.anyKey)  //If no key is being pressed...
+        {
+            anim.SetInteger("State", 0);
+        }
     }
 }
