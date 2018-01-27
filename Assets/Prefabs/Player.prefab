@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114177627438797044}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,6 +75,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 20
   jumpHeight: 1
+  onGround: 0
+  peck: 0
+  jumping: 0
 --- !u!212 &212534454847995852
 SpriteRenderer:
   m_ObjectHideFlags: 1
