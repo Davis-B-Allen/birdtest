@@ -13,13 +13,13 @@ public class Player : MonoBehaviour {
 	public Transform lastPlanet;
 	public float forceAmountForJump = 1200f;
 	public Transform groundCheck;
-	public float maxTangentialSpeed = 5f;
+	public float maxTangentialSpeed = 20f;
 	public float smoothTransitionSpeed = 2f;
 	public float transitionErrorMargin = 10f;
-	public float jumpVelocity = 5f;
+	public float jumpVelocity = 30f;
 	public bool canControl = true;
+	public float forceAmountForRotation = 200f;
 
-	private float forceAmountForRotation = 100f;
 	private Vector3 directionOfPlanetFromPlayer;
 	private Vector3 directionOfPlayerFromPlanet;
 	private Rigidbody2D rb2d;
