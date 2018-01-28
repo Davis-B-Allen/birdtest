@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
@@ -49,6 +50,12 @@ public class Player : MonoBehaviour {
 	void Update () {
 		lastPlanet = planet;
 		planet = np.closestPlanet.transform;
+
+		// Dumping this here cuz I don't want to add anything else to demoscene
+		if (Input.GetKeyDown(KeyCode.Escape)) {
+			SceneManager.LoadScene("splashscene");
+		}
+
 		if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) && grounded) {
 			jump = true;
 		}

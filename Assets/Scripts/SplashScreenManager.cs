@@ -13,7 +13,11 @@ public class SplashScreenManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Space)) {
-		SceneManager.LoadScene ("demoscene");
+			SceneManager.LoadScene ("demoscene");
+		}
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			// quit game
+			Application.Quit();
 		}
 	}
 }
