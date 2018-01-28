@@ -35,7 +35,8 @@ public class EatSeed : MonoBehaviour {
 		if ((minDistObj != gameObject) && Input.GetKeyDown(KeyCode.S)) {
 			stomach.Enqueue(minDistObj);
 			minDistObj.active = false;
-		}
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerColors>().ingestedColors.Add(minDistObj.GetComponent<Seed>().color);
+        }
 
 		if (stomach.Count == 0){
 			timeSincePoop = 0;
