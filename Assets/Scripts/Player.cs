@@ -11,12 +11,12 @@ public class Player : MonoBehaviour {
 
 	public Transform planet;
 	public Transform lastPlanet;
-	public float cwMag;
-	public float forceAmountForJump = 30f;
+	public float forceAmountForJump = 1200f;
 	public Transform groundCheck;
 	public float maxTangentialSpeed = 5f;
 	public float smoothTransitionSpeed = 2f;
 	public float transitionErrorMargin = 10f;
+	public float jumpVelocity = 5f;
 	public bool canControl = true;
 
 	private float forceAmountForRotation = 100f;
@@ -36,7 +36,6 @@ public class Player : MonoBehaviour {
 		directionOfPlanetFromPlayer = Vector3.zero;
 		directionOfPlayerFromPlanet = Vector3.zero;
 		rb2d = GetComponent<Rigidbody2D> ();
-		cwMag = 0f;
 
 		tangentialVelocity = Vector3.zero;
 		centrifugalVelocity = Vector3.zero;
@@ -57,7 +56,7 @@ public class Player : MonoBehaviour {
 		directionOfPlayerFromPlanet = (transform.position-planet.position).normalized;
 		Vector3 clockWiseTangent = Vector3.Cross(directionOfPlanetFromPlayer, Vector3.forward);
 
-		grounded = Physics2D.Linecast (transform.position, groundCheck.position, 1 << LayerMask.NameToLayer ("Ground"));
+		grounded = Physics2D.Linecast (transform.position, groundCheck.position, (1 << LayerMask.NameToLayer ("Ground")) | (1 << LayerMask.NameToLayer ("Passable platform")));
 
 		if (planet != lastPlanet && lastPlanet != null) {
 			smoothTransition = true;
@@ -103,23 +102,32 @@ public class Player : MonoBehaviour {
 			animDetails.SetInteger("State", 2);
 		}
 
+		// initial values for tangential and centrifugal components of velocity
+		Vector3 targetTangentialVelocity = tangentialVelocity;
+		Vector3 targetCentrifugalVelocity = centrifugalVelocity;
+
+		// left/right
 		if (canControl && (h * tangentialVelocity.magnitude < maxTangentialSpeed)) {
 			rb2d.AddForce (transform.right * h * forceAmountForRotation);
 		}
 
+		if (tangentialVelocity.magnitude > maxTangentialSpeed) {
+			// if tangential velocity is getting bigger than some max, cap it
+			targetTangentialVelocity = tangentialVelocity * (maxTangentialSpeed / tangentialVelocity.magnitude);
+		}
+
+		// jump
 		if (canControl && jump) {
-			rb2d.AddForce (directionOfPlayerFromPlanet * forceAmountForJump);
+			// set target centrifugal velocity to desired jump velocity
+			targetCentrifugalVelocity = directionOfPlayerFromPlanet.normalized * jumpVelocity;
 			jump = false;
 		}
 
-		cwMag = rb2d.velocity.magnitude;
+		// apply target velocity composited from tangential and centrifugal components to player
+		Vector3 targetVelocity = targetCentrifugalVelocity + targetTangentialVelocity;
+		rb2d.velocity = targetVelocity;
 
-		if (tangentialVelocity.magnitude > maxTangentialSpeed) {
-			Vector3 tv2 = tangentialVelocity * (maxTangentialSpeed / tangentialVelocity.magnitude);
-			Vector3 v2 = centrifugalVelocity + tv2;
-			rb2d.velocity = v2;
-		}
-
+		// flip bird depending on horizontal direction of player input
 		if (h > 0 && !facingRight)
 			Flip ();
 		else if (h < 0 && facingRight)
