@@ -48,28 +48,28 @@ public class TreeCreator : MonoBehaviour {
     void straightUp () {
         GameObject trunk = Instantiate(treeTrunk);
         trunk.transform.SetParent(transform);
-        float interval = segmentCount / 3;
+        float interval = 3.0f;
         trunk.transform.localPosition = Vector3.zero;
         trunk.transform.rotation = transform.rotation;
-        trunk.transform.localScale *= interval;
-        float yCrunch = .9f;
-        float spriteHeight = treeSegment.GetComponent<SpriteRenderer>().sprite.bounds.size.y;
-        float lastHeight = spriteHeight;
-        float totalHeight = calculateTotalHeight(yCrunch, spriteHeight);
-        float lastY = totalHeight;
+        //trunk.transform.localScale *= interval;
+        //float yCrunch = .9f;
+        //float spriteHeight = treeSegment.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite.bounds.size.y;
+        //float lastHeight = spriteHeight;
+        //float totalHeight = calculateTotalHeight(yCrunch, spriteHeight);
+        //float lastY = totalHeight;
 
 
         for (int i = 0; i < segmentCount; i++) {
             GameObject nextSegment = Instantiate(treeSegment);
             nextSegment.transform.SetParent(transform);
-            GameObject centerBottom = nextSegment.transform.GetChild(1).gameObject;
-            float currentHeight = lastHeight * yCrunch;
-            float currentY = lastY - currentHeight;
-            Debug.Log(currentY);
-            nextSegment.transform.localPosition = new Vector3(0, currentY, 0);
-            nextSegment.transform.localScale = new Vector3(nextSegment.transform.localScale.x, Mathf.Pow(yCrunch, i), nextSegment.transform.localScale.z);
-            lastHeight = currentHeight;
-            lastY = currentY;
+            //GameObject centerBottom = nextSegment;
+            //float currentHeight = lastHeight * yCrunch;
+            //float currentY = lastY - currentHeight;
+            //Debug.Log(currentY);
+            //nextSegment.transform.localPosition = new Vector3(0, currentY, 0);
+            //nextSegment.transform.localScale = new Vector3(nextSegment.transform.localScale.x, Mathf.Pow(yCrunch, i), nextSegment.transform.localScale.z);
+            //lastHeight = currentHeight;
+            //lastY = currentY;
             //float scalingPenalty;
             //float spacingPenalty;
             //if (i < segmentCount / 2) {
@@ -91,6 +91,7 @@ public class TreeCreator : MonoBehaviour {
             //Vector3 segmentPosition = new Vector3(0, yCoord);
             //nextSegment.transform.localPosition = segmentPosition;
             nextSegment.transform.rotation = transform.rotation;
+            nextSegment.transform.localPosition = new Vector3(0, interval * i + 1);
         }
     }
 
