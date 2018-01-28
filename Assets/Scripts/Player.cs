@@ -49,7 +49,7 @@ public class Player : MonoBehaviour {
 	void Update () {
 		lastPlanet = planet;
 		planet = np.closestPlanet.transform;
-		if (Input.GetKey (KeyCode.Space) && grounded) {
+		if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) && grounded) {
 			jump = true;
 		}
 		directionOfPlanetFromPlayer = transform.position - planet.position;
