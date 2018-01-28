@@ -1112,6 +1112,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114523933475044288, guid: 268c1d5081f444174ad05f8a2901e3ad,
+        type: 2}
+      propertyPath: colorOptions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4435971156450442, guid: 268c1d5081f444174ad05f8a2901e3ad, type: 2}
       propertyPath: m_LocalPosition.x
       value: 129.5
@@ -1171,6 +1176,11 @@ Prefab:
     - target: {fileID: 4997667042954888, guid: 268c1d5081f444174ad05f8a2901e3ad, type: 2}
       propertyPath: m_LocalScale.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114523933475044288, guid: 268c1d5081f444174ad05f8a2901e3ad,
+        type: 2}
+      propertyPath: colorOptions.Array.data[0].rgba
+      value: 6184542
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 268c1d5081f444174ad05f8a2901e3ad, type: 2}
