@@ -6,6 +6,9 @@ public class Player : MonoBehaviour {
 
 	[HideInInspector] public bool facingRight = true;
 
+	public Animator animBody;
+	public Animator animDetails;
+
 	public Transform planet;
 	public Transform lastPlanet;
 	public float cwMag;
@@ -38,10 +41,15 @@ public class Player : MonoBehaviour {
 		tangentialVelocity = Vector3.zero;
 		centrifugalVelocity = Vector3.zero;
 		np = GetComponent<NearestPlanet>();
+
+		animBody = transform.Find ("birdBody").GetComponent<Animator> ();
+		animDetails = transform.Find ("birdDetails").GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		lastPlanet = planet;
+		planet = np.closestPlanet.transform;
 		if (Input.GetKey (KeyCode.Space) && grounded) {
 			jump = true;
 		}
@@ -77,12 +85,23 @@ public class Player : MonoBehaviour {
 
 		centrifugalVelocity = Vector3.Project (rb2d.velocity, directionOfPlayerFromPlanet.normalized);
 		tangentialVelocity = Vector3.Project (rb2d.velocity, clockWiseTangent.normalized);
-		lastPlanet = planet;
-		planet = np.closestPlanet.transform;
 	}
 
 	void FixedUpdate () {
 		float h = Input.GetAxis ("Horizontal");
+
+		if (grounded) {
+			if (h == 0) {
+				animBody.SetInteger("State", 0);
+				animDetails.SetInteger("State", 0);
+			} else {
+				animBody.SetInteger("State", 1);
+				animDetails.SetInteger("State", 1);
+			}
+		} else {
+			animBody.SetInteger("State", 2);
+			animDetails.SetInteger("State", 2);
+		}
 
 		if (canControl && (h * tangentialVelocity.magnitude < maxTangentialSpeed)) {
 			rb2d.AddForce (transform.right * h * forceAmountForRotation);
