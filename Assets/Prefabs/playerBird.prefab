@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 124938661777164824}
   - component: {fileID: 81611515690191018}
   - component: {fileID: 114627616069968122}
+
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -472,6 +473,7 @@ MonoBehaviour:
   jumpSound: {fileID: 8300000, guid: ca9b32bc06064854f89b1317638020be, type: 3}
   peckSound: {fileID: 8300000, guid: 99f2348cd9691a148b8f68aa9c5f8045, type: 3}
   walkSound: {fileID: 8300000, guid: 3e7d29f7b3962064ab4024690dd6485d, type: 3}
+  poopSound: {fileID: 8300000, guid: 0430e84377bfcf14d98585cfa0d84080, type: 3}
   poopSound: {fileID: 0}
 --- !u!114 &114627616069968122
 MonoBehaviour:
@@ -564,7 +566,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: a462008dcea7dcf49a18489a33b56314, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -608,7 +610,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 183ee6cf1eeedef41a57883d3b2656b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
