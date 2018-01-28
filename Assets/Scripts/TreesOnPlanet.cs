@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TreesOnPlanet : MonoBehaviour {
     public List<GameObject> planetTrees;
-    public int multiplier;
+    public int multiplier = 2;
 	// Use this for initialization
 	void Start () {
         planetTrees = new List<GameObject>();
