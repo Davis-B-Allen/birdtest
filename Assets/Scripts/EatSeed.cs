@@ -11,7 +11,7 @@ public class EatSeed : MonoBehaviour {
 	GameObject nearestPlanet;
 	SpriteRenderer sr;
 	PlayerColors pc;
-	public Color targetColor;
+	public Color targetColor = Color.white;
 	float colorTransitionTime = 24f;
 	float currentTransitionTime = 0f;
     public bool isPooping = false;
@@ -35,8 +35,8 @@ public class EatSeed : MonoBehaviour {
 			nearestPlanet = np.closestPlanet;
 		}
 
-		targetColor = nearestPlanet.GetComponent<PlanetDescriptor>().planetBirdColor;
-		currentTransitionTime += Time.deltaTime;
+        targetColor = nearestPlanet.GetComponent<PlanetDescriptor>().planetBirdColor;
+        currentTransitionTime += Time.deltaTime;
 		float colorShiftPercent = Mathf.Min(1.0f, currentTransitionTime/colorTransitionTime)/3*Mathf.Min(3, pc.ingestedColors.Count);
 		Debug.Log(colorShiftPercent);
 		Debug.Log(pc.ingestedColors.Count);
