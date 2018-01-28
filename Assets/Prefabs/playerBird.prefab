@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 114177212334983554}
   - component: {fileID: 114344712243691660}
   - component: {fileID: 82953208066535360}
+  - component: {fileID: 114940359370650108}
   m_Layer: 0
   m_Name: playerBird
   m_TagString: Player
@@ -495,7 +496,7 @@ MonoBehaviour:
   gravityForce: 100
 --- !u!114 &114940359370650108
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1621358618513258}
@@ -598,5 +599,5 @@ SpriteRenderer:
   m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
