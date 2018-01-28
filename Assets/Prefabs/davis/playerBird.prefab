@@ -330,15 +330,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   facingRight: 1
+  animBody: {fileID: 0}
+  animDetails: {fileID: 0}
   planet: {fileID: 0}
   lastPlanet: {fileID: 0}
   cwMag: 0
-  forceAmountForJump: 500
+  forceAmountForJump: 1200
   groundCheck: {fileID: 4903575367057320}
   maxTangentialSpeed: 20
   smoothTransitionSpeed: 2
   transitionErrorMargin: 10
+  jumpVelocity: 5
   canControl: 1
+  postJumpDelayDuration: 0.5
 --- !u!114 &114848933791726778
 MonoBehaviour:
   m_ObjectHideFlags: 1
