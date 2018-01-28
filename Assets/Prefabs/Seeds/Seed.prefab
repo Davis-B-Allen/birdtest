@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4806416518347038}
   - component: {fileID: 212399975357017916}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: OverlayTeture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 70753295283330064}
   - component: {fileID: 114633784416828076}
   - component: {fileID: 114222521506981462}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Seed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
