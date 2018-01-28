@@ -19,14 +19,12 @@ public class EatSeed : MonoBehaviour {
 	void Update () {
 		timeSincePoop += Time.deltaTime;
 		seeds = GameObject.FindGameObjectsWithTag("Seed");
-		Debug.Log(seeds.Length);
 		float minDist = 100f;
 		GameObject minDistObj = gameObject;
 
 		//find closest seed
 		foreach (GameObject obj in seeds) {
 			float dist = Vector3.Distance(gameObject.transform.position, obj.transform.position);
-			Debug.Log(dist);
 			//update current closest object seen so far
 			if (dist <= seedEatDistance) {
 				minDist = dist;
@@ -37,7 +35,6 @@ public class EatSeed : MonoBehaviour {
 		if ((minDistObj != gameObject) && Input.GetKeyDown(KeyCode.S)) {
 			stomach.Enqueue(minDistObj);
 			minDistObj.active = false;
-			Debug.Log("i did it");
 		}
 
 		if (stomach.Count == 0){

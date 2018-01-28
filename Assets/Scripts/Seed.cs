@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Seed : MonoBehaviour {
 	public Object treePrefab;
-	public float digestionPeriod = 10f;
+	public float digestionPeriod = 3f;
 	public float treeGrowDelay = 2f;
 	bool canGrow = false;
 	ObjectGravity objGrav;
@@ -20,7 +20,7 @@ public class Seed : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D (Collision2D collision) {
-		if (collision.gameObject.tag == "Planet") {
+		if (collision.gameObject.tag == "Planet" && gameObject.tag == "PoopSeed") {
 			canGrow = true;
 		}
 	}
@@ -37,9 +37,10 @@ public class Seed : MonoBehaviour {
 		//wait for some time before spawning tree and setting its planet, and parent
 		yield return new WaitForSeconds(treeGrowDelay);
 		GameObject tree = (GameObject) GameObject.Instantiate(treePrefab, transform.position, Quaternion.identity);//, (objGrav.closestPlanet.transform.position - transform.position).normalize);
-		GameObject.Destroy(gameObject);
+        tree.GetComponent<TreeCreator>().segmentCount = gameObject.GetComponent<ObjectGravity>().closestPlanet.GetComponent<TreesOnPlanet>().currentSegmentCount();
+        GameObject.Destroy(gameObject);
 		TreeCreator tc = tree.GetComponent<TreeCreator>();
 		tc.planet = objGrav.closestPlanet;
-		tree.transform.parent = tc.planet.transform;
+		//tree.transform.parent = tc.planet.transform;
 	}
 }
