@@ -97,6 +97,10 @@ public class Player : MonoBehaviour {
 				animBody.SetInteger("State", 1);
 				animDetails.SetInteger("State", 1);
 			}
+			if (Input.GetKeyDown (KeyCode.S)) {
+				animBody.SetInteger("State", 3);
+				animDetails.SetInteger("State", 3);
+			}
 		} else {
 			animBody.SetInteger("State", 2);
 			animDetails.SetInteger("State", 2);

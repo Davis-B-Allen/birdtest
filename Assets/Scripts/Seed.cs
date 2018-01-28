@@ -8,10 +8,12 @@ public class Seed : MonoBehaviour {
 	public float treeGrowDelay = 2f;
 	bool canGrow = false;
 	ObjectGravity objGrav;
+    public Color color;
 
 	// Use this for initialization
 	void Start () {
 		objGrav = GetComponent<ObjectGravity>();
+        color = gameObject.GetComponent<SpriteRenderer>().color;
 	}
 	
 	// Update is called once per frame
