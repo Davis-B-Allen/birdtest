@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlanetDescriptor : MonoBehaviour {
-	public Color32 planetColor;
+	public Color32 planetBirdColor;
 	public List<Color32> colorOptions = new List<Color32>();
 
 	// Use this for initialization
