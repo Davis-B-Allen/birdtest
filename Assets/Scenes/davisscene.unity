@@ -322,6 +322,11 @@ Prefab:
       propertyPath: m_Name
       value: playerBird (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114344712243691660, guid: 11dfe0fca3d724dc4a0f62ba9521acf4,
+        type: 2}
+      propertyPath: walkSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d1f75121ba5db5e48851a81c5fbc174b, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 11dfe0fca3d724dc4a0f62ba9521acf4, type: 2}
   m_IsPrefabParent: 0
