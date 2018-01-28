@@ -11,7 +11,7 @@ public class TreeCreator : MonoBehaviour {
     Vector3 quadrant;
     public string growthType;
     //public float segmentInterval; 
-    public int segmentCount;
+    public float segmentCount;
     bool creating;
     Vector3 destination;
     Vector3 directionBuried;
@@ -33,15 +33,14 @@ public class TreeCreator : MonoBehaviour {
             quadrant.y = -1;
         }
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, zRotation));
-        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
         destination = transform.position;
+        //transform.position = planet.transform.position - transform.position / 2;
         float xDirection = Mathf.Sin(Mathf.Deg2Rad * zRotation);
         float yDirection = Mathf.Cos(Mathf.Deg2Rad * zRotation);
         float obscuringDistance = ((segmentCount + 1) * 3.0f);
         directionBuried = new Vector3(xDirection, -yDirection);
         transform.position += (directionBuried * obscuringDistance);
         growthSpeed = obscuringDistance / 50f;
-        /* the "pop open" feature" */
         //transform.localScale = new Vector3(.1f, 1f);
 
         if (growthType == "straightUp") {
@@ -53,13 +52,13 @@ public class TreeCreator : MonoBehaviour {
 	void Update () {
         if (creating) {
             transform.position -= directionBuried * growthSpeed;
-            if (Vector3.Distance(transform.position, destination) < 0.2f) {
+            if (transform.position == destination) {
                 finishCreation();
             }
         }
     }
 
-    void initialize (GameObject trunk, GameObject segment, GameObject planetObj, string type, float interval, int count) {
+    void initialize (GameObject trunk, GameObject segment, GameObject planetObj, string type, float interval, float count) {
         treeTrunk = trunk;
         treeSegment = segment;
         planet = planetObj;
@@ -72,7 +71,6 @@ public class TreeCreator : MonoBehaviour {
         creating = false;
         //transform.localScale = new Vector3(1, 1);
         dropSeeds();
-        planet.GetComponent<TreesOnPlanet>().planetTrees.Add(gameObject);
     }
 
     void dropSeeds () {
@@ -81,8 +79,13 @@ public class TreeCreator : MonoBehaviour {
         Vector3 seedSpawn = directionBuried * .2f;
         GameObject seed1 = Instantiate(seed);
         GameObject seed2 = Instantiate(seed);
-        seed1.GetComponent<SpriteRenderer>().sortingOrder = 4;
-        seed2.GetComponent<SpriteRenderer>().sortingOrder = 4;
+		SpriteRenderer sr1 = seed1.GetComponent<SpriteRenderer>();
+		SpriteRenderer sr2 = seed2.GetComponent<SpriteRenderer>();
+        sr1.sortingOrder = 4;
+        sr2.sortingOrder = 4;
+        PlanetDescriptor pd = planet.GetComponent<PlanetDescriptor>();
+        sr1.color = pd.colorOptions[Random.Range(0,pd.colorOptions.Count)];
+		sr2.color = pd.colorOptions[Random.Range(0,pd.colorOptions.Count)];
 
         seed1.transform.position = transform.position + right * .5f;
         seed2.transform.position = transform.position + left * .5f;
