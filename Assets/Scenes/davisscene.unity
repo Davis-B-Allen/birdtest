@@ -326,7 +326,12 @@ Prefab:
         type: 2}
       propertyPath: walkSound
       value: 
-      objectReference: {fileID: 8300000, guid: d1f75121ba5db5e48851a81c5fbc174b, type: 3}
+      objectReference: {fileID: 8300000, guid: 3e7d29f7b3962064ab4024690dd6485d, type: 3}
+    - target: {fileID: 114344712243691660, guid: 11dfe0fca3d724dc4a0f62ba9521acf4,
+        type: 2}
+      propertyPath: poopSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 0430e84377bfcf14d98585cfa0d84080, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 11dfe0fca3d724dc4a0f62ba9521acf4, type: 2}
   m_IsPrefabParent: 0
