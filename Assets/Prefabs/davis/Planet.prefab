@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 33143074562308464}
   - component: {fileID: 23382220805506514}
   - component: {fileID: 58383554066498612}
+  - component: {fileID: 114790177982294556}
   m_Layer: 14
   m_Name: Planet
   m_TagString: Planet
@@ -268,3 +269,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114790177982294556
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1241420387155728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8639e2d5eb6c05343ab578cb5d7f19e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planetTrees: []
+  multiplier: 2

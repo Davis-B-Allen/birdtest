@@ -248,7 +248,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 20
+  m_AngularDrag: 50
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -327,13 +327,14 @@ MonoBehaviour:
   animDetails: {fileID: 0}
   planet: {fileID: 0}
   lastPlanet: {fileID: 0}
-  cwMag: 0
   forceAmountForJump: 500
   groundCheck: {fileID: 4398483748055160}
   maxTangentialSpeed: 20
   smoothTransitionSpeed: 2
   transitionErrorMargin: 10
+  jumpVelocity: 30
   canControl: 1
+  forceAmountForRotation: 200
 --- !u!114 &114102576384857250
 MonoBehaviour:
   m_ObjectHideFlags: 1
