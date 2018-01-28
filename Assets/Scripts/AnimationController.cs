@@ -22,11 +22,11 @@ public class AnimationController : MonoBehaviour {
 
         currentState = anim.GetInteger("State");
 
-	    if ((Input.GetKeyDown(KeyCode.D)) || (Input.GetKeyDown(KeyCode.A)))
+	    if ((Input.GetKeyDown(KeyCode.D)) || (Input.GetKeyDown(KeyCode.A))) 
         {
             anim.SetInteger("State", 1);
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W)) 
         {
             anim.SetInteger("State", 2);
         }
