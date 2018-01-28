@@ -52,7 +52,6 @@ GameObject:
   - component: {fileID: 20675090696353362}
   - component: {fileID: 124938661777164824}
   - component: {fileID: 81611515690191018}
-  - component: {fileID: 114352989155404740}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -375,7 +374,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95772988152496868
@@ -392,7 +391,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114048265042896726
@@ -404,8 +403,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 198c29c0209a7442c9f43decb7945bea, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   facingRight: 1
   animBody: {fileID: 0}
   animDetails: {fileID: 0}
@@ -428,8 +427,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a84c9fbd1b9fb5b42a0e1a849a112218, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   currentState: 0
 --- !u!114 &114177212334983554
 MonoBehaviour:
@@ -440,8 +439,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01ce88e91956d41d0ae486ce9cc21317, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   buttReferenceObj: {fileID: 1433481934789962}
   seedEatDistance: 4
   isPooping: 0
@@ -454,8 +453,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3118ce97dcc534a5baba3b184b1d5026, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   closestPlanet: {fileID: 0}
 --- !u!114 &114344712243691660
 MonoBehaviour:
@@ -466,8 +465,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c04063a78a8339d4b842d171108911bb, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   poopSoundplayed: 0
   jumpSound: {fileID: 8300000, guid: ca9b32bc06064854f89b1317638020be, type: 3}
   peckSound: {fileID: 8300000, guid: 99f2348cd9691a148b8f68aa9c5f8045, type: 3}
@@ -482,8 +481,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a84c9fbd1b9fb5b42a0e1a849a112218, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   currentState: 0
 --- !u!114 &114871755589362626
 MonoBehaviour:
@@ -494,8 +493,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1df781361256544c7b07dd5f8c7a8ecf, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   closestPlanet: {fileID: 0}
   gravityForce: 100
 --- !u!114 &114940359370650108
@@ -507,8 +506,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77a9149152e5c2d4989ab8ef4a105b12, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   ingestedColors: []
 --- !u!124 &124938661777164824
 Behaviour:
@@ -550,7 +549,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: a462008dcea7dcf49a18489a33b56314, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -594,7 +593,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 183ee6cf1eeedef41a57883d3b2656b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
