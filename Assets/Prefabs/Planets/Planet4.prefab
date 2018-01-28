@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212682028683411600}
   - component: {fileID: 58375027581554386}
   - component: {fileID: 114003475637861118}
+  - component: {fileID: 114166182005030068}
   m_Layer: 14
   m_Name: Planet4
   m_TagString: Planet
@@ -101,6 +102,19 @@ MonoBehaviour:
   planetColor:
     serializedVersion: 2
     rgba: 6511193
+--- !u!114 &114166182005030068
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1482295079516802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8639e2d5eb6c05343ab578cb5d7f19e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planetTrees: []
+  multiplier: 2
 --- !u!212 &212246555502950564
 SpriteRenderer:
   m_ObjectHideFlags: 1
