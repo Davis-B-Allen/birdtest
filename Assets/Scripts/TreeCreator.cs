@@ -44,6 +44,7 @@ public class TreeCreator : MonoBehaviour {
         growthSpeed = obscuringDistance / 50f;
         //transform.localScale = new Vector3(.1f, 1f);
 
+
         if (growthType == "straightUp") {
             straightUp();
         }
@@ -95,7 +96,9 @@ public class TreeCreator : MonoBehaviour {
     }
 
     void straightUp () {
+		PlanetDescriptor pd = planet.GetComponent<PlanetDescriptor>();
         GameObject trunk = Instantiate(treeTrunk);
+		trunk.GetComponent<SpriteRenderer>().color = pd.colorOptions[Random.Range(0,pd.colorOptions.Count)];
         trunk.transform.SetParent(transform);
         float interval = 3.0f;
         trunk.transform.localPosition = Vector3.zero;
@@ -107,9 +110,10 @@ public class TreeCreator : MonoBehaviour {
         //float totalHeight = calculateTotalHeight(yCrunch, spriteHeight);
         //float lastY = totalHeight;
 
-
+		Color segmentColor = pd.colorOptions[Random.Range(0,pd.colorOptions.Count)];
         for (int i = 0; i < segmentCount; i++) {
             GameObject nextSegment = Instantiate(treeSegment);
+			nextSegment.GetComponent<SpriteRenderer>().color = segmentColor;
             nextSegment.transform.SetParent(transform);
             //GameObject centerBottom = nextSegment;
             //float currentHeight = lastHeight * yCrunch;
