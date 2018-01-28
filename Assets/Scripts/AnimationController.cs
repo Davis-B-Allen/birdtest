@@ -14,6 +14,12 @@ public class AnimationController : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate ()
     {
+        //Each State number coresponds to a bird action
+        // 0 = Idle
+        // 1 = Walking
+        // 2 = Jumping
+        // 3 = Pecking
+
         currentState = anim.GetInteger("State");
 
 	    if ((Input.GetKeyDown(KeyCode.D)) || (Input.GetKeyDown(KeyCode.A)))
