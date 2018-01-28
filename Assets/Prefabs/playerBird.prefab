@@ -327,12 +327,12 @@ MonoBehaviour:
   animDetails: {fileID: 0}
   planet: {fileID: 0}
   lastPlanet: {fileID: 0}
-  cwMag: 0
   forceAmountForJump: 500
   groundCheck: {fileID: 4398483748055160}
   maxTangentialSpeed: 20
   smoothTransitionSpeed: 2
   transitionErrorMargin: 10
+  jumpVelocity: 5
   canControl: 1
 --- !u!114 &114102576384857250
 MonoBehaviour:
@@ -481,7 +481,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cc6bcbc45bd948e4ebddc9b98dff374f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 183ee6cf1eeedef41a57883d3b2656b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
