@@ -8,11 +8,14 @@ public class EatSeed : MonoBehaviour {
 	Queue<GameObject> stomach;
 	float timeSincePoop = 0f;
 	public float seedEatDistance = 0.5f;
+    public bool isPooping = false;
+    AudioController aud;
 
 	// Use this for initialization
 	void Start () {
 		seeds = GameObject.FindGameObjectsWithTag("Seed");
 		stomach = new Queue<GameObject>();
+        aud = GetComponent<AudioController>();
 	}
 	
 	// Update is called once per frame
@@ -50,6 +53,12 @@ public class EatSeed : MonoBehaviour {
 				seed.active = true;
 				StartCoroutine(seedScript.GrowTree());
 				timeSincePoop = 0;
+                isPooping = true;
+                aud.poopSoundplayed = false;
+                if (aud.poopSoundplayed == true)
+                {
+                    isPooping = false;
+                }
 			}
 		}
 	}
