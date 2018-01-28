@@ -36,11 +36,22 @@ GameObject:
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 4526626615191988}
   - component: {fileID: 212655704851682092}
   m_Layer: 15
   m_Name: Texture
   m_TagString: Untagged
+=======
+  - component: {fileID: 4251994677661728}
+  - component: {fileID: 212485270390630606}
+  - component: {fileID: 58451116253897338}
+  - component: {fileID: 114693180529462762}
+  - component: {fileID: 114400427117051792}
+  m_Layer: 14
+  m_Name: Planet1
+  m_TagString: Planet
+>>>>>>> master
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,7 +98,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 41.255005
+<<<<<<< HEAD
 --- !u!114 &114357394613281134
+=======
+--- !u!114 &114400427117051792
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1870016731552396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8639e2d5eb6c05343ab578cb5d7f19e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planetTrees: []
+  multiplier: 2
+--- !u!114 &114693180529462762
+>>>>>>> master
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -198,5 +226,5 @@ SpriteRenderer:
   m_Size: {x: 82.51, y: 82.51}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
