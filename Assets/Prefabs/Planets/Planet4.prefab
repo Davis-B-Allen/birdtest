@@ -142,9 +142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3784207e73fb4d89b62eb57431de971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetColor:
+  planetBirdColor:
     serializedVersion: 2
-    rgba: 6511193
+    rgba: 4294967295
   colorOptions: []
 --- !u!212 &212167449583013042
 SpriteRenderer:

@@ -129,9 +129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3784207e73fb4d89b62eb57431de971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetColor:
+  planetBirdColor:
     serializedVersion: 2
-    rgba: 10255431
+    rgba: 4292249969
   colorOptions:
   - serializedVersion: 2
     rgba: 4287673460
