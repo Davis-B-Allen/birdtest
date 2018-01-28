@@ -33,6 +33,7 @@ public class TreeCreator : MonoBehaviour {
             quadrant.y = -1;
         }
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, zRotation));
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
         destination = transform.position;
         //transform.position = planet.transform.position - transform.position / 2;
         float xDirection = Mathf.Sin(Mathf.Deg2Rad * zRotation);
@@ -70,6 +71,7 @@ public class TreeCreator : MonoBehaviour {
     void finishCreation () {
         creating = false;
         //transform.localScale = new Vector3(1, 1);
+        planet.GetComponent<TreesOnPlanet>().planetTrees.Add(gameObject);
         dropSeeds();
     }
 
