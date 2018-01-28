@@ -71,6 +71,7 @@ public class TreeCreator : MonoBehaviour {
     void finishCreation () {
         creating = false;
         //transform.localScale = new Vector3(1, 1);
+        planet.GetComponent<TreesOnPlanet>().planetTrees.Add(gameObject);
         dropSeeds();
     }
 
