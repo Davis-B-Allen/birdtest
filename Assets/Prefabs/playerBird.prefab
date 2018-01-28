@@ -52,6 +52,7 @@ GameObject:
   - component: {fileID: 20675090696353362}
   - component: {fileID: 124938661777164824}
   - component: {fileID: 81611515690191018}
+  - component: {fileID: 114352989155404740}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -373,6 +374,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closestPlanet: {fileID: 0}
+--- !u!114 &114352989155404740
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1604120710329592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c67c7515f3d641758ef57755ecd3fd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomInSize: 20
+  zoomOutSize: 100
+  duration: 0.5
 --- !u!114 &114825428850205208
 MonoBehaviour:
   m_ObjectHideFlags: 1
