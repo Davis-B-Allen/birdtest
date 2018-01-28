@@ -133,8 +133,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01eb4171454ce4eb08289065420e3b81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treePrefab: {fileID: 1765758632635782, guid: 221e1929430aa4ea889fc69ea6f110dc, type: 2}
-  treeGrowDelay: 2.5
+  treePrefab: {fileID: 1882051215347760, guid: f3539d0af6a86ee4bbdfc583f909cd2e, type: 2}
+  digestionPeriod: 10
+  treeGrowDelay: 2
 --- !u!212 &212399975357017916
 SpriteRenderer:
   m_ObjectHideFlags: 1
