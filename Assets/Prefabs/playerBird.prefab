@@ -73,6 +73,8 @@ GameObject:
   - component: {fileID: 114313958494156614}
   - component: {fileID: 114871755589362626}
   - component: {fileID: 114177212334983554}
+  - component: {fileID: 114344712243691660}
+  - component: {fileID: 82953208066535360}
   m_Layer: 0
   m_Name: playerBird
   m_TagString: Untagged
@@ -277,6 +279,86 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1604120710329592}
   m_Enabled: 1
+--- !u!82 &82953208066535360
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1621358618513258}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95232921703563666
 Animator:
   serializedVersion: 3
@@ -334,7 +416,7 @@ MonoBehaviour:
   transitionErrorMargin: 10
   jumpVelocity: 30
   canControl: 1
-  forceAmountForRotation: 200
+  forceAmountForRotation: 100
 --- !u!114 &114102576384857250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -372,6 +454,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closestPlanet: {fileID: 0}
+--- !u!114 &114344712243691660
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1621358618513258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c04063a78a8339d4b842d171108911bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpSound: {fileID: 8300000, guid: ca9b32bc06064854f89b1317638020be, type: 3}
+  peckSound: {fileID: 8300000, guid: 99f2348cd9691a148b8f68aa9c5f8045, type: 3}
+  walkSound: {fileID: 8300000, guid: 3e7d29f7b3962064ab4024690dd6485d, type: 3}
 --- !u!114 &114825428850205208
 MonoBehaviour:
   m_ObjectHideFlags: 1

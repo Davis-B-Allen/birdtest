@@ -6,7 +6,7 @@ public class AudioController : MonoBehaviour {
     AudioSource aud;
     public AudioClip jumpSound;
     public AudioClip peckSound;
-    public AudioClip wowSound;
+    public AudioClip walkSound;
 	// Use this for initialization
 	void Start () {
         aud = GetComponent<AudioSource>();
@@ -22,6 +22,9 @@ public class AudioController : MonoBehaviour {
         {
             aud.PlayOneShot(peckSound);
         }
-        if (Input.GetKeyDown(KeyCode.))
+        if ((Input.GetKeyDown(KeyCode.A)) || (Input.GetKeyDown(KeyCode.D)))
+        {
+            aud.PlayOneShot(walkSound);
+        }
 	}
 }
