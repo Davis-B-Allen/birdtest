@@ -52,6 +52,8 @@ GameObject:
   - component: {fileID: 20675090696353362}
   - component: {fileID: 124938661777164824}
   - component: {fileID: 81611515690191018}
+  - component: {fileID: 114627616069968122}
+
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -472,6 +474,21 @@ MonoBehaviour:
   peckSound: {fileID: 8300000, guid: 99f2348cd9691a148b8f68aa9c5f8045, type: 3}
   walkSound: {fileID: 8300000, guid: 3e7d29f7b3962064ab4024690dd6485d, type: 3}
   poopSound: {fileID: 8300000, guid: 0430e84377bfcf14d98585cfa0d84080, type: 3}
+  poopSound: {fileID: 0}
+--- !u!114 &114627616069968122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1604120710329592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c67c7515f3d641758ef57755ecd3fd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomInSize: 20
+  zoomOutSize: 100
+  duration: 0.5
 --- !u!114 &114825428850205208
 MonoBehaviour:
   m_ObjectHideFlags: 1
