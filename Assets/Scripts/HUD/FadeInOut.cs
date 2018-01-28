@@ -33,7 +33,8 @@ public class FadeInOut : MonoBehaviour {
         } else if (action == "fade out") {
             fadeOut();
         } else if (action == "destroy") {
-            Object.Destroy(gameObject);
+            //Object.Destroy(gameObject);
+           
         }
         bool dismissed = false;
         foreach (KeyCode code in dismissKeys) {

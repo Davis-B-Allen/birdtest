@@ -12,7 +12,7 @@ public class FirstTutorialTrigger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Vector3.Distance(player.transform.position, transform.position) < 1f) {
+		if (Vector3.Distance(player.transform.position, transform.position) < 5f) {
             jumpTutorial.GetComponent<FadeInOut>().startWithTrigger();
         }
 	}
