@@ -44,6 +44,11 @@ public class TreeCreator : MonoBehaviour {
         growthSpeed = obscuringDistance / 50f;
         //transform.localScale = new Vector3(.1f, 1f);
 
+		//chosse color pattern
+		PlanetDescriptor pd = planet.GetComponent<PlanetDescriptor>();
+		treeTrunk.GetComponent<SpriteRenderer>().color = pd.colorOptions[Random.Range(0,pd.colorOptions.Count)];
+		treeSegment.GetComponent<SpriteRenderer>().color = pd.colorOptions[Random.Range(0,pd.colorOptions.Count)];
+
         if (growthType == "straightUp") {
             straightUp();
         }
