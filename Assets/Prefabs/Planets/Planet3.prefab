@@ -101,6 +101,19 @@ MonoBehaviour:
   planetColor:
     serializedVersion: 2
     rgba: 6601450
+  colorOptions:
+  - serializedVersion: 2
+    rgba: 4284857324
+  - serializedVersion: 2
+    rgba: 4280182177
+  - serializedVersion: 2
+    rgba: 4283405538
+  - serializedVersion: 2
+    rgba: 4283605202
+  - serializedVersion: 2
+    rgba: 4283663998
+  - serializedVersion: 2
+    rgba: 4285450152
 --- !u!212 &212161885391654358
 SpriteRenderer:
   m_ObjectHideFlags: 1
