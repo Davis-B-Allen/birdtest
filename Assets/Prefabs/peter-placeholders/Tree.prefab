@@ -52,8 +52,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   treeTrunk: {fileID: 1827157119922048, guid: 598ad53bc07c5d34d914bb24a9f03bd0, type: 2}
-  treeSegment: {fileID: 1782405862666846, guid: 78cac1a48eeb51447bb99b36d626217b,
+  treeSegment: {fileID: 1539004303695896, guid: b8590461c982e5a469d742393b1a5371,
     type: 2}
+  planet: {fileID: 0}
   growthType: straightUp
-  segmentInterval: 0.5
   segmentCount: 3
