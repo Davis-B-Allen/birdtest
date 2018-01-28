@@ -38,8 +38,8 @@ public class EatSeed : MonoBehaviour {
         targetColor = nearestPlanet.GetComponent<PlanetDescriptor>().planetBirdColor;
         currentTransitionTime += Time.deltaTime;
 		float colorShiftPercent = Mathf.Min(1.0f, currentTransitionTime/colorTransitionTime)/3*Mathf.Min(3, pc.ingestedColors.Count);
-		Debug.Log(colorShiftPercent);
-		Debug.Log(pc.ingestedColors.Count);
+		//Debug.Log(colorShiftPercent);
+		//Debug.Log(pc.ingestedColors.Count);
 		if (sr.color != targetColor) {
 			sr.color = Color.Lerp(sr.color, targetColor, colorShiftPercent);
 		}
