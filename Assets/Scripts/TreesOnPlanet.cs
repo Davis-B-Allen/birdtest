@@ -16,6 +16,6 @@ public class TreesOnPlanet : MonoBehaviour {
 	}
 
     public int currentSegmentCount () {
-        return planetTrees.Count * multiplier;
+        return (planetTrees.Count + 1) * multiplier;
     }
 }
