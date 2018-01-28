@@ -52,7 +52,7 @@ public class TreeCreator : MonoBehaviour {
 	void Update () {
         if (creating) {
             transform.position -= directionBuried * growthSpeed;
-            if (transform.position == destination) {
+            if (Vector3.Distance(transform.position, destination) < .3f) {
                 finishCreation();
             }
         }
